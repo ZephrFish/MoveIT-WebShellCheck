@@ -6,7 +6,7 @@ def check_host(host, output_file=None):
         try:
             response = requests.get(f"{protocol}://{host.strip()}/human2.aspx")
             if response.status_code == 404:
-                result = f"{protocol.upper()} {host}: compromised"
+                result = f"{protocol.upper()} {host}: has webshell code present, therefore may be compromised"
             elif response.status_code == 302:
                 result = f"{protocol.upper()} {host}: exploit not present"
             else:
