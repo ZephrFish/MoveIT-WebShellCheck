@@ -1,6 +1,6 @@
 # MoveIT-WebShellCheck
 
-This Python script checks specific URLs (`http://<host>/human2.aspx`) on a list of hosts and prints out a result depending on the HTTP response code it receives. It prints "compromised" if it receives a 404 status code, "exploit not present" if it receives a 302 status code, and reports an unexpected status code for all other codes.
+This Python script checks specific URLs (`http|https://<host>/human2.aspx`) on a list of hosts and prints out a result depending on the HTTP response code it receives. It prints "compromised" if it receives a 404 status code, "exploit not present" if it receives a 302 status code, and reports an unexpected status code for all other codes.
 
 The list of hosts can be provided as a file (with one host per line) or a single host can be provided directly. The script can optionally write the output to a specified file as well as print it to the console.
 
