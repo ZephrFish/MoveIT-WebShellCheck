@@ -8,7 +8,7 @@ def check_host(host, output_file=None):
             if response.status_code == 404:
                 result = f"{protocol.upper()} {host}: has webshell code present, therefore may be compromised"
             else:
-                result = f"{protocol.upper()} {host}: exploit not presentd {response.status_code}"
+                result = f"{protocol.upper()} {host}: exploit not present {response.status_code}"
         except Exception as e:
             result = f"An error occurred while checking {protocol.upper()} {host}: {str(e)}"
         
