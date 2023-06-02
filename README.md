@@ -4,6 +4,8 @@ This Python script checks specific URLs (`http|https://<host>/human2.aspx`) on a
 
 The list of hosts can be provided as a file (with one host per line) or a single host can be provided directly. The script can optionally write the output to a specified file as well as print it to the console.
 
+*Note: this will generate false positives but the human2.aspx shell responds with a 404 when it's there, but equally if you try to hit it usually it should 302 you*
+
 ## Requirements
 - Python 3
 - requests library installed in Python
