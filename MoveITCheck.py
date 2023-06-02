@@ -5,10 +5,12 @@ def check_host(host, output_file=None):
     for protocol in ['http', 'https']:
         try:
             response = requests.get(f"{protocol}://{host.strip()}/human2.aspx")
-            if response.status_code == 404:
-                result = f"{protocol.upper()} {host}: has webshell code present, therefore may be compromised"
+            if response.status_code == 404 and "The file or directory you are trying to access does not exist." in response.text:
+                result = f"{protocol.upper()} {host}: compromised"
+            elif response.status_code == 302:
+                result = f"{protocol.upper()} {host}: exploit not present double check host for other default MoveIT paths"
             else:
-                result = f"{protocol.upper()} {host}: exploit not present {response.status_code}"
+                result = f"{protocol.upper()} {host}: returned unexpected status code {response.status_code}"
         except Exception as e:
             result = f"An error occurred while checking {protocol.upper()} {host}: {str(e)}"
         
